@@ -1,14 +1,15 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { 
-  Gauge, 
-  Settings, 
+  Home, 
+  CreditCard, 
+  Wallet, 
+  BarChart3, 
   Users, 
-  Database, 
-  ChartBar, 
-  Shield, 
+  FileText, 
   Bell, 
-  FileText 
+  Shield,
+  Code
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -16,44 +17,43 @@ interface SidebarProps {
   onScreenChange: (screen: string) => void;
 }
 
-export const Sidebar = ({ activeScreen, onScreenChange }: SidebarProps) => {
+export const Sidebar: React.FC<SidebarProps> = ({ activeScreen, onScreenChange }) => {
   const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: Gauge },
-    { id: 'gateways', label: 'Gateway Management', icon: Settings },
-    { id: 'wallets', label: 'Wallet Management', icon: Database },
-    { id: 'monitoring', label: 'Real-time Monitoring', icon: ChartBar },
-    { id: 'clients', label: 'Client Management', icon: Users },
-    { id: 'reports', label: 'Reports & Analytics', icon: FileText },
+    { id: 'dashboard', label: 'Dashboard', icon: Home },
+    { id: 'gateways', label: 'Gateways', icon: CreditCard },
+    { id: 'wallets', label: 'Wallets', icon: Wallet },
+    { id: 'monitoring', label: 'Monitoring', icon: BarChart3 },
+    { id: 'clients', label: 'Clients', icon: Users },
+    { id: 'reports', label: 'Reports', icon: FileText },
     { id: 'alerts', label: 'Alert Center', icon: Bell },
-    { id: 'security', label: 'Security & Config', icon: Shield },
+    { id: 'developer', label: 'Developer Tools', icon: Code },
+    { id: 'security', label: 'Security', icon: Shield },
   ];
 
   return (
-    <aside className="w-64 bg-white border-r border-gray-200 h-screen">
+    <div className="w-64 bg-white border-r border-gray-200 h-[calc(100vh-73px)]">
       <nav className="p-4">
         <ul className="space-y-2">
           {menuItems.map((item) => {
             const Icon = item.icon;
-            const isActive = activeScreen === item.id;
-            
             return (
               <li key={item.id}>
                 <button
                   onClick={() => onScreenChange(item.id)}
-                  className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-colors ${
-                    isActive
+                  className={`w-full flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                    activeScreen === item.id
                       ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
-                      : 'text-gray-700 hover:bg-gray-50'
+                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                   }`}
                 >
-                  <Icon className={`w-5 h-5 ${isActive ? 'text-blue-700' : 'text-gray-500'}`} />
-                  <span className="font-medium">{item.label}</span>
+                  <Icon className="w-5 h-5 mr-3" />
+                  {item.label}
                 </button>
               </li>
             );
           })}
         </ul>
       </nav>
-    </aside>
+    </div>
   );
 };

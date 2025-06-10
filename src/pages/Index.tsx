@@ -9,6 +9,7 @@ import { RealTimeMonitoring } from '../components/dashboard/RealTimeMonitoring';
 import { ClientManagement } from '../components/dashboard/ClientManagement';
 import { ReportsAnalytics } from '../components/dashboard/ReportsAnalytics';
 import { AlertCenterScreen } from '../components/dashboard/AlertCenterScreen';
+import { DeveloperTools } from '../components/dashboard/DeveloperTools';
 import { SecurityConfig } from '../components/dashboard/SecurityConfig';
 
 const Index = () => {
@@ -30,6 +31,8 @@ const Index = () => {
         return <ReportsAnalytics />;
       case 'alerts':
         return <AlertCenterScreen />;
+      case 'developer':
+        return <DeveloperTools />;
       case 'security':
         return <SecurityConfig />;
       default:
