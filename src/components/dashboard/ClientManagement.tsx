@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -305,7 +304,6 @@ export const ClientManagement = () => {
                         <Switch 
                           checked={client.whatsappNotifications}
                           onCheckedChange={() => toggleNotification(client.id, 'whatsapp')}
-                          size="sm"
                         />
                         <span className="text-xs">WhatsApp</span>
                       </div>
@@ -314,7 +312,6 @@ export const ClientManagement = () => {
                         <Switch 
                           checked={client.emailNotifications}
                           onCheckedChange={() => toggleNotification(client.id, 'email')}
-                          size="sm"
                         />
                         <span className="text-xs">Email</span>
                       </div>
