@@ -11,9 +11,12 @@ import {
   FileText 
 } from 'lucide-react';
 
-export const Sidebar = () => {
-  const [activeItem, setActiveItem] = useState('dashboard');
+interface SidebarProps {
+  activeScreen: string;
+  onScreenChange: (screen: string) => void;
+}
 
+export const Sidebar = ({ activeScreen, onScreenChange }: SidebarProps) => {
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: Gauge },
     { id: 'gateways', label: 'Gateway Management', icon: Settings },
@@ -31,12 +34,12 @@ export const Sidebar = () => {
         <ul className="space-y-2">
           {menuItems.map((item) => {
             const Icon = item.icon;
-            const isActive = activeItem === item.id;
+            const isActive = activeScreen === item.id;
             
             return (
               <li key={item.id}>
                 <button
-                  onClick={() => setActiveItem(item.id)}
+                  onClick={() => onScreenChange(item.id)}
                   className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-colors ${
                     isActive
                       ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
