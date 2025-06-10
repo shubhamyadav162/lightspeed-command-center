@@ -7,6 +7,9 @@ import { GatewayManagement } from '../components/dashboard/GatewayManagement';
 import { WalletManagement } from '../components/dashboard/WalletManagement';
 import { RealTimeMonitoring } from '../components/dashboard/RealTimeMonitoring';
 import { ClientManagement } from '../components/dashboard/ClientManagement';
+import { ReportsAnalytics } from '../components/dashboard/ReportsAnalytics';
+import { AlertCenterScreen } from '../components/dashboard/AlertCenterScreen';
+import { SecurityConfig } from '../components/dashboard/SecurityConfig';
 
 const Index = () => {
   const [activeScreen, setActiveScreen] = useState('dashboard');
@@ -24,11 +27,11 @@ const Index = () => {
       case 'clients':
         return <ClientManagement />;
       case 'reports':
-        return <div className="p-6">Reports & Analytics - Coming Soon</div>;
+        return <ReportsAnalytics />;
       case 'alerts':
-        return <div className="p-6">Alert Center - Coming Soon</div>;
+        return <AlertCenterScreen />;
       case 'security':
-        return <div className="p-6">Security & Config - Coming Soon</div>;
+        return <SecurityConfig />;
       default:
         return <DashboardHome />;
     }
