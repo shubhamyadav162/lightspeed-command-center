@@ -5,7 +5,7 @@ import {
   Settings, 
   Users, 
   Database, 
-  Chart, 
+  ChartBar, 
   Shield, 
   Bell, 
   FileText 
@@ -18,7 +18,7 @@ export const Sidebar = () => {
     { id: 'dashboard', label: 'Dashboard', icon: Gauge },
     { id: 'gateways', label: 'Gateway Management', icon: Settings },
     { id: 'wallets', label: 'Wallet Management', icon: Database },
-    { id: 'monitoring', label: 'Real-time Monitoring', icon: Chart },
+    { id: 'monitoring', label: 'Real-time Monitoring', icon: ChartBar },
     { id: 'clients', label: 'Client Management', icon: Users },
     { id: 'reports', label: 'Reports & Analytics', icon: FileText },
     { id: 'alerts', label: 'Alert Center', icon: Bell },
